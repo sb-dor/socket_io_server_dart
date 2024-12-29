@@ -1,2 +1,1 @@
-A sample command-line application with an entrypoint in `bin/`, library code
-in `lib/`, and example unit test in `test/`.
+## _**implementation of client side is here:**_ _**[LINK](https://github.com/sb-dor/State-Management-in-Flutter/tree/master/lib/socket_io_learning)**_
