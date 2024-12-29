@@ -1,8 +1,6 @@
 import 'package:socket_io/socket_io.dart';
 
 void main(List<String> arguments) async {
-
-
   Server io = Server();
   io.on('connection', (client) {
     client.on('echo', (data) {
@@ -22,11 +20,10 @@ void main(List<String> arguments) async {
       io.to(data['room']).emit('room', data['message']);
     });
 
-    client.on('leaveRoom', (room) {
-      client.leave(room, (_) {
-        // print('Client ${client.id} left room: $room');
+    client.on('leaveRoom', (data) {
+      client.leave(data, (_) {
         // Optionally notify others in the room
-        io.to(room).emit('user_left', {'clientId': client.id, 'room': room});
+        io.to(data).emit('room', {"leave": "user_left"}); // {"leave" : "user_left"} just a message
       });
     });
   });
